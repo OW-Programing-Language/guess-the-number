@@ -1,0 +1,11 @@
+import "Game.ow"
+
+main:
+  set game: new Game()
+  print: "=== Guess the Number (1-100) ==="
+  set playing int: 1
+  while: playing == 1
+    set n int: int(input("Your guess > "))
+    print: game.guess(n)
+    if: game.done == 1
+      set playing: 0

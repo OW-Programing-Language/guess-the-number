@@ -1,0 +1,19 @@
+# Number-guessing game logic (no I/O here — the shell drives it).
+class Game:
+  field secret
+  field tries
+  field done
+
+  fn new():
+    set this.secret: rand(100) + 1
+    set this.tries: 0
+    set this.done: 0
+
+  fn guess(n):
+    set this.tries: this.tries + 1
+    if: n < this.secret
+      return: "Higher"
+    if: n > this.secret
+      return: "Lower"
+    set this.done: 1
+    return: "Correct! in " + this.tries + " tries"
